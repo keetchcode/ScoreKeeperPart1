@@ -8,7 +8,7 @@
 import Foundation
 
 struct Game: Codable {
-  var type: String
+  var gameType: String
   var score: Int
   var image: String
 

@@ -171,7 +171,7 @@
                                 <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameCell" rowHeight="204" id="QQo-nj-GWa" customClass="PlayerCell" customModule="ScoreKeeperPart1" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameCell" rowHeight="204" id="QQo-nj-GWa" customClass="GameCell" customModule="ScoreKeeperPart1" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="204"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QQo-nj-GWa" id="h3J-sa-OT5">
@@ -189,16 +189,22 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cH-U8-Tg7">
-                                                            <rect key="frame" x="192" y="92" width="45" height="20.333333333333329"/>
+                                                            <rect key="frame" x="146.33333333333334" y="92" width="45" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1x-y6-ClY">
-                                                            <rect key="frame" x="328.66666666666669" y="92" width="44.333333333333314" height="20.333333333333329"/>
+                                                            <rect key="frame" x="238.00000000000003" y="92" width="44.333333333333343" height="20.333333333333329"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="44.333333333333343" id="dCA-f4-E23"/>
                                                             </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPS-on-6Ni">
+                                                            <rect key="frame" x="328.66666666666669" y="92" width="44.333333333333314" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -213,6 +219,12 @@
                                                 <constraint firstAttribute="bottom" secondItem="2iY-Ju-Y8H" secondAttribute="bottom" id="tcv-2t-gdj"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="gameImageView" destination="6Pq-Vt-fQc" id="bQC-HJ-Blh"/>
+                                            <outlet property="gameLabel" destination="0cH-U8-Tg7" id="Kgv-t0-Bnm"/>
+                                            <outlet property="winnerLabel" destination="D1x-y6-ClY" id="JJb-wX-Cfu"/>
+                                            <outlet property="winnerScoreLabel" destination="RPS-on-6Ni" id="vgb-nl-pIf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

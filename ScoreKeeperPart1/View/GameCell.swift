@@ -8,23 +8,16 @@
 import UIKit
 
 class GameCell: UITableViewCell {
-
-
-
-
-
-
-  func updateLabels(with player: Player) {
-    nameLabel.text = player.name
-    scoreLabel.text = String(player.score)
-    playerImageView.image = UIImage(named: player.image)!
-    }
-
-  override func awakeFromNib() {
-    super.awakeFromNib()
-  }
-
-  override func setSelected(_ selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
+  
+  @IBOutlet weak var gameImageView: UIImageView!
+  @IBOutlet weak var gameLabel: UILabel!
+  @IBOutlet weak var winnerLabel: UILabel!
+  @IBOutlet weak var winnerScoreLabel: UILabel!
+  
+  func updateLabels(with game: Game) {
+    gameImageView.image = UIImage(named: game.image)!
+    gameLabel.text = game.gameType
+    winnerLabel.text = game.description
+    winnerScoreLabel.text = String(game.score)
   }
 }

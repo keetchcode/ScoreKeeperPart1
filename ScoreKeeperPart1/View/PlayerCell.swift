@@ -18,14 +18,5 @@ class PlayerCell: UITableViewCell {
     nameLabel.text = player.name
     scoreLabel.text = String(player.score)
     playerImageView.image = UIImage(named: player.image)!
-    }
-
-  override func awakeFromNib() {
-    super.awakeFromNib()
   }
-
-  override func setSelected(_ selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
-  }
-
 }
