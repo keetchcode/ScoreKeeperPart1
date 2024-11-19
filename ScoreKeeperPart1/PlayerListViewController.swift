@@ -62,13 +62,10 @@ class PlayerListViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     let player = players[indexPath.row]
-//    cell.nameLabel.text = player.name
-//    cell.scoreLabel.text = "\(player.score)
 
     cell.updateLabels(with: player)
 
     cell.stepper.value = Double(player.score)
-
     cell.stepper.tag = indexPath.row
     cell.stepper.addTarget(self, action: #selector(scoreChanged(_:)), for: .valueChanged)
 
