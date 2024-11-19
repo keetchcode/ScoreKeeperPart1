@@ -98,7 +98,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="NQL-Wg-THq" id="hdb-q3-cEm"/>
+                        <outlet property="playerListTableView" destination="NQL-Wg-THq" id="hdb-q3-cEm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -159,7 +159,7 @@
         <!--Game Tracker-->
         <scene sceneID="I7A-JQ-h47">
             <objects>
-                <viewController title="Game Tracker" id="zi3-lB-GG6" sceneMemberID="viewController">
+                <viewController title="Game Tracker" id="zi3-lB-GG6" customClass="GameListViewController" customModule="ScoreKeeperPart1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6So-7B-zkQ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -213,11 +213,6 @@
                                                 <constraint firstAttribute="bottom" secondItem="2iY-Ju-Y8H" secondAttribute="bottom" id="tcv-2t-gdj"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="nameLabel" destination="0cH-U8-Tg7" id="Nez-P1-7o5"/>
-                                            <outlet property="playerImageView" destination="6Pq-Vt-fQc" id="oDI-by-Xmr"/>
-                                            <outlet property="scoreLabel" destination="D1x-y6-ClY" id="BRB-B1-A0X"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -226,13 +221,19 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="IbE-zX-Bxg">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="qOa-3n-fBH"/>
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="qOa-3n-fBH">
+                            <color key="tintColor" systemColor="systemMintColor"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="drk-jc-05b">
+                            <color key="tintColor" systemColor="systemMintColor"/>
                             <connections>
                                 <segue destination="H8a-IC-caZ" kind="show" id="BWA-Gg-2dd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="GameListTableView" destination="82R-1z-AgC" id="TE7-cL-sT2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JES-ov-Xo1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
