@@ -93,7 +93,7 @@
                             <color key="tintColor" systemColor="systemIndigoColor"/>
                             <connections>
                                 <action selector="addPlayerTapped:" destination="BYZ-38-t0r" id="Pjy-0v-pcf"/>
-                                <segue destination="iSv-SH-I1m" kind="presentation" id="qd8-oo-bEf"/>
+                                <segue destination="iSv-SH-I1m" kind="show" id="qd8-oo-bEf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -110,11 +110,11 @@
             <objects>
                 <viewController storyboardIdentifier="AddPlayerViewController" title="Add New Player" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iSv-SH-I1m" customClass="AddPlayerViewController" customModule="ScoreKeeperPart1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Eep-zX-ld7">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vtW-fP-fDQ">
-                                <rect key="frame" x="100" y="365" width="193" height="112.33333333333331"/>
+                                <rect key="frame" x="100" y="370" width="193" height="112.33333333333331"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YCK-Il-OAz">
                                         <rect key="frame" x="0.0" y="0.0" width="193" height="34"/>
@@ -146,6 +146,7 @@
                             <constraint firstItem="vtW-fP-fDQ" firstAttribute="leading" secondItem="K5k-pa-qZB" secondAttribute="leading" constant="100" id="dwX-P0-8Es"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="FWn-MV-jiW"/>
                     <connections>
                         <outlet property="newPlayerLabel" destination="YCK-Il-OAz" id="EFV-B9-Ezg"/>
                         <outlet property="newPlayerScoreLabel" destination="oMk-Nv-nUE" id="kPm-4j-CFb"/>
@@ -226,17 +227,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="IbE-zX-Bxg">
                         <barButtonItem key="leftBarButtonItem" title="Edit" id="qOa-3n-fBH"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="drk-jc-05b"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="drk-jc-05b">
+                            <connections>
+                                <segue destination="H8a-IC-caZ" kind="show" id="BWA-Gg-2dd"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JES-ov-Xo1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2501.5267175572517" y="704.92957746478874"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Game View Controller-->
         <scene sceneID="5Lr-m1-bZc">
             <objects>
-                <viewController id="H8a-IC-caZ" sceneMemberID="viewController">
+                <viewController id="H8a-IC-caZ" customClass="AddGameViewController" customModule="ScoreKeeperPart1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IyU-83-x92">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -261,6 +266,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Save"/>
                                         <connections>
+                                            <action selector="saveGameButtonTapped:" destination="H8a-IC-caZ" eventType="touchUpInside" id="q5Q-JV-ToR"/>
                                             <action selector="savePlayerButtonTapped:" destination="iSv-SH-I1m" eventType="touchUpInside" id="532-E3-Hs3"/>
                                         </connections>
                                     </button>
@@ -271,6 +277,11 @@
                         <viewLayoutGuide key="safeArea" id="7eh-3Y-1ON"/>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Bj6-J6-87k"/>
+                    <connections>
+                        <outlet property="newGameLabel" destination="tVb-On-JRd" id="Ros-wS-eWr"/>
+                        <outlet property="newGameScoreLabel" destination="3Bm-cj-iMY" id="nec-1n-dnR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nMS-ea-Rji" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
