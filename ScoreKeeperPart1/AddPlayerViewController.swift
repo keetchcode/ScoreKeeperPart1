@@ -10,7 +10,7 @@ import UIKit
 class AddPlayerViewController: UIViewController {
   
   @IBOutlet weak var newPlayerLabel: UITextField!
-  @IBOutlet weak var newScoreLabel: UITextField!
+  @IBOutlet weak var newPlayerScoreLabel: UITextField!
   
   weak var delegate: AddPlayerDelegate?
   
@@ -22,14 +22,14 @@ class AddPlayerViewController: UIViewController {
     super.viewDidLoad()
   }
   
-  @IBAction func saveButtonTapped(_ sender: UIButton) {
+  @IBAction func savePlayerButtonTapped(_ sender: UIButton) {
     guard let name = newPlayerLabel.text, !name.isEmpty,
-          let scoreText = newScoreLabel.text, let score = Int(scoreText) else
+          let scoreText = newPlayerScoreLabel.text, let score = Int(scoreText) else
     {
       return
     }
     
-    let newPlayer = Player(name: name, score: score, image: "ryan", description: "")
+    let newPlayer = Player(name: name, score: score, image: "player", description: "")
     delegate?.didAddPlayer(newPlayer)
     navigationController?.popViewController(animated: true)
   }

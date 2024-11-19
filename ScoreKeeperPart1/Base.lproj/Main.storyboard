@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nR5-gE-wRB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C5M-z6-29J">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
@@ -87,8 +87,8 @@
                             <constraint firstItem="NQL-Wg-THq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kLk-vx-P5Z"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Scores" image="numbers.rectangle.fill" catalog="system" id="TWi-56-1Od"/>
                     <navigationItem key="navigationItem" title="Score Keeper" id="4el-7P-FYN">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="qFY-vo-D1P"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="Cg2-nS-Aw4">
                             <color key="tintColor" systemColor="systemIndigoColor"/>
                             <connections>
@@ -103,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1576" y="-27"/>
+            <point key="canvasLocation" x="2501.5267175572517" y="-27.464788732394368"/>
         </scene>
         <!--Add New Player-->
         <scene sceneID="dAa-HM-Duu">
@@ -132,7 +132,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Save"/>
                                         <connections>
-                                            <action selector="saveButtonTapped:" destination="iSv-SH-I1m" eventType="touchUpInside" id="cMb-KL-7WW"/>
+                                            <action selector="savePlayerButtonTapped:" destination="iSv-SH-I1m" eventType="touchUpInside" id="cMb-KL-7WW"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -148,30 +148,12 @@
                     </view>
                     <connections>
                         <outlet property="newPlayerLabel" destination="YCK-Il-OAz" id="EFV-B9-Ezg"/>
-                        <outlet property="newScoreLabel" destination="oMk-Nv-nUE" id="kPm-4j-CFb"/>
+                        <outlet property="newPlayerScoreLabel" destination="oMk-Nv-nUE" id="kPm-4j-CFb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eDH-lV-czL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2524" y="-27"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="6Ba-Wu-Quv">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hfB-tU-buf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nR5-gE-wRB" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1lR-28-cBD">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="C5M-z6-29J" kind="relationship" relationship="rootViewController" id="Y0M-w2-XMj"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="-527" y="246"/>
+            <point key="canvasLocation" x="3449.6183206106871" y="-27.464788732394368"/>
         </scene>
         <!--Game Tracker-->
         <scene sceneID="I7A-JQ-h47">
@@ -242,11 +224,57 @@
                         <viewLayoutGuide key="safeArea" id="61f-JQ-x2N"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Matches" image="list.clipboard.fill" catalog="system" id="Nnn-rU-IWG"/>
+                    <navigationItem key="navigationItem" id="IbE-zX-Bxg">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="qOa-3n-fBH"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="drk-jc-05b"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JES-ov-Xo1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1575" y="705"/>
+            <point key="canvasLocation" x="2501.5267175572517" y="704.92957746478874"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="5Lr-m1-bZc">
+            <objects>
+                <viewController id="H8a-IC-caZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IyU-83-x92">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacing="5" id="2Ec-Ac-A4Z">
+                                <rect key="frame" x="100" y="369" width="193" height="112.33333333333326"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type of Game" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tVb-On-JRd">
+                                        <rect key="frame" x="0.0" y="0.0" width="193" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Score" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Bm-cj-iMY">
+                                        <rect key="frame" x="0.0" y="39" width="193" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXM-mC-7ce">
+                                        <rect key="frame" x="0.0" y="78" width="193" height="34.333333333333343"/>
+                                        <color key="tintColor" systemColor="systemMintColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Save"/>
+                                        <connections>
+                                            <action selector="savePlayerButtonTapped:" destination="iSv-SH-I1m" eventType="touchUpInside" id="532-E3-Hs3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="kEs-do-Mnc"/>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7eh-3Y-1ON"/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nMS-ea-Rji" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3450" y="705"/>
         </scene>
         <!--Item-->
         <scene sceneID="rGi-t7-hb2">
@@ -256,18 +284,57 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FMv-D1-Huw"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="la2-yp-ial">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" name="AccentColor"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="D6u-2K-LLL"/>
-                        <segue destination="zi3-lB-GG6" kind="relationship" relationship="viewControllers" id="2pG-cI-KGH"/>
+                        <segue destination="zB3-rf-mmL" kind="relationship" relationship="viewControllers" id="D6u-2K-LLL"/>
+                        <segue destination="vIG-Ju-Ucq" kind="relationship" relationship="viewControllers" id="2pG-cI-KGH"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bAY-U7-wgn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="335" y="246"/>
+        </scene>
+        <!--Scores-->
+        <scene sceneID="TXH-Z1-Odl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zB3-rf-mmL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Scores" image="numbers.rectangle.fill" catalog="system" id="TWi-56-1Od"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vLk-Xc-xzs">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="7Na-GQ-nAX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lsb-gH-q5w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1574.8091603053435" y="-27.464788732394368"/>
+        </scene>
+        <!--Matches-->
+        <scene sceneID="dNA-eQ-m3q">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vIG-Ju-Ucq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Matches" image="list.clipboard.fill" catalog="system" id="Nnn-rU-IWG"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tAL-Em-W4v">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zi3-lB-GG6" kind="relationship" relationship="rootViewController" id="3AW-bh-eOE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jNr-Zk-Kuu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1574.8091603053435" y="704.92957746478874"/>
         </scene>
     </scenes>
     <resources>
@@ -281,7 +348,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
