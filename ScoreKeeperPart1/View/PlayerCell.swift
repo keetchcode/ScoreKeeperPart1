@@ -8,15 +8,16 @@
 import UIKit
 
 class PlayerCell: UITableViewCell {
-
+  
   @IBOutlet weak var playerImageView: UIImageView!
-  @IBOutlet weak var nameLabel: UILabel!
-  @IBOutlet weak var scoreLabel: UILabel!
+  @IBOutlet weak var playerNameLabel: UILabel!
+  @IBOutlet weak var playerScoreLabel: UILabel!
   @IBOutlet weak var stepper: UIStepper!
-
+  
   func updateLabels(with player: Player) {
-    nameLabel.text = player.name
-    scoreLabel.text = String(player.score)
-    playerImageView.image = UIImage(named: player.image)!
+    playerNameLabel.text = player.name
+    playerScoreLabel.text = "\(player.score)"
+    playerImageView.image = UIImage(named: player.image) ?? UIImage(systemName: "person.fill")
   }
 }
+

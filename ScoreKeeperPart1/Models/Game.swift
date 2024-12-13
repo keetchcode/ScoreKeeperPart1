@@ -11,6 +11,7 @@ struct Game: Codable {
   var gameType: String
   var score: Int
   var image: String
-
   var description: String
+  var players: [Player]
 }
+

@@ -7,34 +7,26 @@
 
 import UIKit
 
-class PlayerListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddPlayerViewController.AddPlayerDelegate {
+class PlayerListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddPlayerDelegate {
 
   @IBOutlet weak var playerListTableView: UITableView!
-
-  protocol AddPlayerDelegate: AnyObject {
-    func didAddPlayer(_ player: Player)
-  }
 
   var players: [Player] = []
 
   override func viewDidLoad() {
     super.viewDidLoad()
     playerListTableView.dataSource = self
-    playerListTableView.delegate
-    = self
+    playerListTableView.delegate = self
 
     let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addPlayerTapped))
-
     navigationItem.rightBarButtonItem = addButton
 
     players = [
       Player(name: "Mike", score: 100, image: "mike", description: ""),
-      Player(name: "Ryan", score: 80,  image: "ryan", description: ""),
+      Player(name: "Ryan", score: 80, image: "ryan", description: ""),
       Player(name: "Nathan", score: 60, image: "nathan", description: ""),
       Player(name: "Parker", score: 40, image: "parker", description: "")
     ]
-
-    playerListTableView.reloadData()
 
     loadPlayers()
   }
@@ -44,13 +36,24 @@ class PlayerListViewController: UIViewController, UITableViewDataSource, UITable
     savePlayers()
   }
 
-  @IBAction func addPlayerTapped(_ sender: Any) {
+  // MARK: - Add Player
+
+  @objc func addPlayerTapped(_ sender: Any) {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     if let addPlayerVC = storyboard.instantiateViewController(withIdentifier: "AddPlayerViewController") as? AddPlayerViewController {
       addPlayerVC.delegate = self
       navigationController?.pushViewController(addPlayerVC, animated: true)
     }
   }
+
+  func didAddPlayer(_ player: Player) {
+    players.append(player)
+    sortPlayers()
+    playerListTableView.reloadData()
+    savePlayers()
+  }
+
+  // MARK: - Table View Data Source
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return players.count
@@ -64,7 +67,6 @@ class PlayerListViewController: UIViewController, UITableViewDataSource, UITable
     let player = players[indexPath.row]
 
     cell.updateLabels(with: player)
-
     cell.stepper.value = Double(player.score)
     cell.stepper.tag = indexPath.row
     cell.stepper.addTarget(self, action: #selector(scoreChanged(_:)), for: .valueChanged)
@@ -72,24 +74,23 @@ class PlayerListViewController: UIViewController, UITableViewDataSource, UITable
     return cell
   }
 
+
+  // MARK: - Score Update with Stepper
+
   @objc func scoreChanged(_ sender: UIStepper) {
     let index = sender.tag
     players[index].score = Int(sender.value)
     sortPlayers()
-
-    playerListTableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-  }
-
-  func didAddPlayer(_ player: Player) {
-    players.append(player)
-    sortPlayers()
     playerListTableView.reloadData()
-    savePlayers()
   }
+
+  // MARK: - Player Sorting
 
   func sortPlayers() {
     players.sort { $0.score > $1.score }
   }
+
+  // MARK: - Data Persistence
 
   func savePlayers() {
     do {
@@ -109,4 +110,14 @@ class PlayerListViewController: UIViewController, UITableViewDataSource, UITable
       }
     }
   }
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "ShowPlayerDetailsSegue" {
+      if let indexPath = playerListTableView.indexPathForSelectedRow,
+         let destinationVC = segue.destination as? PlayerDetailsViewController {
+        destinationVC.player = players[indexPath.row]
+      }
+    }
+  }
+
 }
