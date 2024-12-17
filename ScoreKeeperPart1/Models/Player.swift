@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 struct Player: Codable, Identifiable {
   var id = UUID()
